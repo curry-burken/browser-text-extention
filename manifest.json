@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Query",
+  "version": "1.0",
+  "description": "Copy selected text on the page using a toolbar button.",
+  "permissions": ["scripting", "activeTab", "clipboardWrite"],
+  "action": {
+    "default_title": "Copy selected text",
+    "default_icon": "assests/favicon-32x32.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "assests/favicon-16x16.png",
+    "32": "assests/favicon-32x32.png",
+    "192": "assests/android-chrome-192x192.png"
+  }
+}
