@@ -19,8 +19,11 @@ chrome.action.onClicked.addListener(async (tab) => {
       }, async (results) => {
         const editedPrompt = results[0]?.result;
 
-        if (!editedPrompt) {
-          alert("Prompt cancelled or empty.");
+        if (!editedPrompt || editedPrompt.trim() === "") {
+          await chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            func: () => alert("Prompt cancelled or empty."),
+          });
           return;
         }
 
@@ -37,8 +40,9 @@ chrome.action.onClicked.addListener(async (tab) => {
           // Show response as alert
           chrome.scripting.executeScript({
             target: { tabId: tab.id },
-            func: (msg) => alert("Gemini: " + msg),
-            args: [reply]
+            func: (msg, userPrompt) => {
+              alert(`You: ${userPrompt}\n\nGemini: ${msg}`);
+            },args: [reply, editedPrompt]
           });
 
         } catch (err) {

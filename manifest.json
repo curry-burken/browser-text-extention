@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Gemini Query",
   "version": "1.0",
-  "description": "Copy selected text on the page using a toolbar button.",
+  "description": "Create a query for Gemini LLM by selecting text form a webpage.",
   "permissions": ["scripting", "activeTab", "clipboardWrite"],
   "action": {
     "default_title": "Copy selected text",
