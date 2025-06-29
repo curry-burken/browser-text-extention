@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/proxyserver', async (req, res) => {
-//   const { prompt } = req.body;
+  const { prompt } = req.body;
 
   try {
     const response = await fetch(process.env.REQ_URL, {
@@ -19,7 +19,7 @@ app.post('/proxyserver', async (req, res) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         contents: [
-          { parts: [{ text: "who is trump?" }] }
+          { parts: [{ text: prompt }] }
         ]
       })
     });
