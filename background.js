@@ -28,7 +28,7 @@ chrome.action.onClicked.addListener(async (tab) => {
         }
 
         try {
-          const response = await fetch("https://text-extention.onrender.com/proxyserver", {
+          const response = await fetch("https://browser-text-extension.onrender.com/proxyserver", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ prompt: editedPrompt })
